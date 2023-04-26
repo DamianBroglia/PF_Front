@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { validation } from "./validation";
 //import { useDispatch } from "react-redux";
-//import { *accion del reducer* } from "ruta de las acciones";
+//import { getAllPacks } from "../../redux/actions/PackageActions";
 
 export default function CreatePackageForm() {
+    //const dispatch = useDispatch();
+
     const [inputs, setInputs] = useState({
         name: "",
         location: "",
