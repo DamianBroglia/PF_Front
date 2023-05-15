@@ -17,7 +17,6 @@ export const packageSlice = createSlice({
     },
     getPackageName: (state, action) => {
       state.viewPackages = action.payload;
-      console.log(state.viewPackages);
     },
     getPackageById: (state, action) => {
       state.detail = action.payload;

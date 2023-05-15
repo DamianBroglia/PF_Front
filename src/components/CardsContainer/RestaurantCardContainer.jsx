@@ -14,6 +14,7 @@ export default function RestaurantCardContainer() {
     (state) => state.restaurants.allRestaurants,
   );
   const dispatch = useDispatch();
+  const lugar = "restaurant"
 
   useEffect(() => {
     dispatch(getAllRestaurant());
@@ -21,7 +22,7 @@ export default function RestaurantCardContainer() {
 
   return (
     <>
-      <SearchBar />
+      <SearchBar ubicacion={lugar}/>
       <FilterRestaurant restaurant={allRestaurant} />
       <Grid
         container

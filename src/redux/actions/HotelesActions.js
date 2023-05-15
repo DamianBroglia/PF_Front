@@ -4,6 +4,8 @@ import {
   getHotelById,
   getFilteredHotels,
   setError,
+  getHotelByName,
+  setAllHotels,
 } from '../reducer/hotelesSlice';
 
 export const getAllHotel = () => async (dispatch) => {
@@ -35,3 +37,10 @@ export const getFilterHotels = (hoteles, filter) => async (dispatch) => {
 export const clearError = () => (dispatch) => {
   dispatch(setError(''));
 };
+
+export const getHotelByNameAprox = (name) => (dispatch) => {
+  if (name) {
+    dispatch(getHotelByName(name));
+  } else dispatch(setAllHotels());
+  
+}

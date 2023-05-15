@@ -5,6 +5,8 @@ import './SearchBar.css';
 import { useDispatch } from 'react-redux';
 import { getPackageByName } from '../../redux/actions/packageActions';
 import { getActivityByName } from '../../redux/actions/ActivitiesActions';
+import { getHotelByNameAprox } from "../../redux/actions/HotelesActions";
+import { getRestoByName } from "../../redux/actions/RestaurantsActions";
 
 const SearchBar = (dondeEstoy) => {
   const { ubicacion } = dondeEstoy;
@@ -12,14 +14,17 @@ const SearchBar = (dondeEstoy) => {
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
-    if (ubicacion === 'activity') {
-      e.preventDefault();
-      setSearchTerm(e.target.value);
-      dispatch(getActivityByName(e.target.value));
-    } else {
-      e.preventDefault();
-      setSearchTerm(e.target.value);
-      dispatch(getPackageByName(e.target.value));
+    e.preventDefault();
+    setSearchTerm(e.target.value);
+    switch(ubicacion) {
+      case 'activity':
+        dispatch(getActivityByName(e.target.value));
+      case "hotel":
+        dispatch(getHotelByNameAprox(e.target.value));
+      case "restaurant":
+        dispatch(getRestoByName(e.target.value));
+      default:
+        dispatch(getPackageByName(e.target.value));
     }
   };
 

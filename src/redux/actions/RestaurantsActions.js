@@ -4,6 +4,8 @@ import {
   getRestaurantById,
   getFilteredRestaurant,
   setError,
+  getRestaurantByName,
+  setAllResto,
 } from '../reducer/restaurantsSlice';
 
 export const getAllRestaurant = () => async (dispatch) => {
@@ -38,3 +40,9 @@ export const getFilterRestaurant = (restaurant, filter) => async (dispatch) => {
 export const clearError = () => (dispatch) => {
   dispatch(setError(''));
 };
+
+export const getRestoByName = (name) => (dispatch) => {
+  if (name) {
+    dispatch(getRestaurantByName(name));
+  } else dispatch(setAllResto());
+}

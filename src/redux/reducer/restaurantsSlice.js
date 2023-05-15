@@ -21,6 +21,12 @@ export const restaurantsSlice = createSlice({
     getFilteredRestaurant: (state, action) => {
       state.viewRestaurants = action.payload;
     },
+    getRestaurantByName: (state, action) => {
+      state.viewRestaurants = state.viewRestaurants.filter((elem) => elem.name.toLowerCase().includes((action.payload).toLowerCase()));
+    },
+    setAllResto: (state) => {
+      state.viewRestaurants = state.allRestaurants;
+    },
     setError: (state, action) => {
       state.error = action.payload;
     },
@@ -32,6 +38,8 @@ export const {
   getRestaurantById,
   getFilteredRestaurant,
   setError,
+  getRestaurantByName,
+  setAllResto,
 } = restaurantsSlice.actions;
 
 export default restaurantsSlice.reducer;

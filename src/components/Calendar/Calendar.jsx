@@ -24,6 +24,14 @@ export default function Calendar({ handleClick }) {
   const [inicio, setInicio] = useState('');
   const [last, setLast] = useState('');
 
+  const calculateLeapYear = () => {
+    const targetYear = year[currentYear];
+    if (targetYear % 400 === 0) return true;
+    if (targetYear % 100 === 0) return false;
+    if (targetYear % 4 === 0) return true;
+    return false;
+  }
+
   const meses = {
     Enero: 1,
     Febrero: 2,
@@ -41,7 +49,7 @@ export default function Calendar({ handleClick }) {
 
   const daysPerMonth = {
     Enero: 31,
-    Febrero: year[currentYear] === 2024 ? 29 : 28, //2024 tiene 29 dias
+    Febrero: calculateLeapYear() ? 29 : 28, //2024 tiene 29 dias
     Marzo: 31,
     Abril: 30,
     Mayo: 31,

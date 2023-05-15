@@ -58,8 +58,9 @@ export const package1 = {
       name: 'Turismo rural en Estancia Villaverde',
       duration: 12,
       img: [
-        'https://www.castelar-digital.com.ar/img/fotos/Carpincho_Merlo_animal_salvaje_silvestre_domesticado_El_Ceibo_1%20(3).jpeg',
-        'https://tn.com.ar/resizer/PfCF7llwixFJqeKDWEU7mGMQvqM=/arc-anglerfish-arc2-prod-artear/public/7KN3BQZPQNEBZGRAFJJ43NO6IE.jpg',
+        "https://estanciavillaverde.com.ar/info/img/estanciavillaverde_casco2006.jpg",
+        "https://www.serargentino.com/public/images/2021/05/phpKVXxuk-1620334683.jpg",
+        "https://lomioesviajar.files.wordpress.com/2020/11/53170-cow-cattle-livestock-5717273-1024x682-1.jpg",
       ],
       description: `A cinco minutos de Santa Rosa se ubica la Estancia Villaverde, la primera estancia turística de la provincia que invita a disfrutar de la paz del paisaje pampeano, degustando las más exquisitas comidas caseras elaboradas con productos de su granja.
 
@@ -74,7 +75,8 @@ export const package1 = {
       duration: 5,
       img: [
         'https://media.ambito.com/p/0af13291ff93aec7423187c845507b6c/adjuntos/239/imagenes/039/278/0039278392/1200x675/smart/carpinchosjpeg.jpeg',
-        'https://static.misionesonline.news/wp-content/uploads/2022/06/carpincho-adulto-tumbado-1280x720x80xX.jpg',
+        "https://argentinatermal.com.ar/wp-content/uploads/2017/03/termas-spa-1.jpg",
+        "https://media.cdn.laarena.com.ar/072022/1658316524383.jpg",
       ],
       description: ` Las termas de Bernardo Larroudé ofrecen piletas con aguas termales. Boxes individuales para baños de inmersión o hidromasajes, gabinetes de masajes, de cosmética, sauna, gimnasio, y yacuzzi; servicios de fangoterapia local y general, tratamiento con algas (filoterapia), masajes, estética facial y corporal, dermatología (psoriasis, acné) para enfermedades reumáticas (artrosis, contracturas musculares, lumbalgias, citalgias) enfermedades vasculares (varices, trastornos circulatorios periféricos, enfermedades cardiacas). Terapias para relajarse y disfrutar, además de distintas actividades deportivas y recreativas caracterizan este entorno natural de 24 ha arboladas.`,
       typeAct: 'relax',

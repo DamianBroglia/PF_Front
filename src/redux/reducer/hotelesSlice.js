@@ -21,13 +21,19 @@ export const hotelesSlice = createSlice({
     getFilteredHotels: (state, action) => {
       state.viewHoteles = action.payload;
     },
+    getHotelByName: (state, action) => {
+      state.viewHoteles = state.viewHoteles.filter((elem) => elem.name.toLowerCase().includes((action.payload).toLowerCase()));
+    },
+    setAllHotels: (state) => {
+      state.viewHoteles = state.allHoteles;
+    },
     setError: (state, action) => {
       state.error = action.payload;
     },
   },
 });
 
-export const { getAllHoteles, getHotelById, setError, getFilteredHotels } =
+export const { getAllHoteles, getHotelById, setError, getFilteredHotels, getHotelByName, setAllHotels } =
   hotelesSlice.actions;
 
 export default hotelesSlice.reducer;

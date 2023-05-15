@@ -12,6 +12,7 @@ export default function ActivityCardontainer() {
   const hoteles = useSelector((state) => state.hoteles.viewHoteles);
   const allHotels = useSelector((state) => state.hoteles.allHoteles);
   const dispatch = useDispatch();
+  const lugar = "hotel"
 
   useEffect(() => {
     dispatch(getAllHotel());
@@ -19,7 +20,7 @@ export default function ActivityCardontainer() {
 
   return (
     <>
-      <SearchBar />
+      <SearchBar ubicacion={lugar}/>
       <FilterHotel hoteles={allHotels} />
       <Grid
         container

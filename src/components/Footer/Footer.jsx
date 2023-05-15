@@ -3,16 +3,23 @@ import './Footer.css';
 import BasicModal from '../CreatePackage/Modals/BasicModal';
 import UserFeedback from '../MailSend/UserFeedback';
 import { Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNav = (name) => {
+    navigate(name);
+  }
+
   return (
     <footer className='footer'>
       <div className='footer-container'>
         <div className='footer-options'>
-          <a href='#'>Acerca de nosotros</a>
-          <a href='#'>Destinos turísticos</a>
-          <a href='#'>Reservas y precios</a>
+          <a onClick={() => alert("no es mucho, pero es trabajo honrado")}>Acerca de nosotros</a>
+          <a onClick={() => handleNav("/activitycards")}>Destinos turísticos</a>
+          <a onClick={() => handleNav("/packagecards")}>Reservas y precios</a>
           <a onClick={() => setOpen(true)}>Contacto</a>
           <Box>
           <BasicModal
@@ -33,10 +40,6 @@ function Footer() {
             Suscríbete a nuestro boletín y recibe ofertas exclusivas para
             viajar.
           </p>
-          <form>
-            <input type='email' placeholder='Ingresa tu correo electrónico' />
-            <button type='submit'>Suscribirme</button>
-          </form>
         </div>
       </div>
     </footer>
