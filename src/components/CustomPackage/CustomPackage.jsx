@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import {
   borrarActivitie,
   borrarHotel,
+  dateSet,
   estadoInicialCarrito,
 } from '../../redux/actions/carritoActions';
 import { setButtonToCart } from '../../redux/actions/formActions';
@@ -19,13 +20,19 @@ function CustomPackage() {
   const dispatch = useDispatch();
   const [date, setDate] = useState('');
   const carrito = useSelector((state) => state.carrito);
-  const { activities, hotel } = carrito;
+  const { activities, hotel, dates } = carrito;
   const [open, setOpen] = useState(false);
   const user = useSelector((state) => state.users.user);
+  const [vendida, setVendida] = useState(false);
 
   const handleApprove = async () => {
-    dispatch(addReserva());
-    dispatch(estadoInicialCarrito());
+    if (date && activities) {
+      const duracion = Math.ceil(activities.length / 2);
+      var fecha2 = new Date();
+      fecha2.setDate(date.getDate() + duracion);
+      dispatch(dateSet({init: date.getTime(), end: fecha2.getTime()}));
+      alert("hecho");
+    } else alert("falta fecha y/o actividades");
   };
 
   const handleDelete = async (name) => {
@@ -64,6 +71,8 @@ function CustomPackage() {
   const handleSubmit = async () => {
     const duracion = Math.ceil(activities.length / 2);
     const activitiesId = activities.map((elem) => {return elem.id});
+    const dateInit = new Date(dates.init);
+    const dateEnd = new Date(dates.end);
     const pack = {
       name: "custom package",
       location: "custom",
@@ -72,23 +81,34 @@ function CustomPackage() {
       img : [],
       description: "custom",
       quotas: 2,
-      dateInit: date || new Date ("12/3/2023"),
-      dateEnd: new Date("12/5/2023"),
+      dateInit: dateInit,
+      dateEnd: dateEnd,
       activitiesId: activitiesId,
       hotelId: hotel.id,
       restaurantId: "",
       userId: user.id
     }
     const response = await axios.post("/package", pack);
+    console.log(response);
     const datosAMandar = {
       paid: true,
       numOfTravels: 1,
       userId: user.id,
-      packageId: response.data.id,
+      packageId: response.data.id
     }
     await axios.post("/reservation", datosAMandar);
+    setVendida(false);
     dispatch(estadoInicialCarrito());
   }
+
+  useEffect(() => {
+    if (vendida) {
+      alert('¡Genial! Su transacción ha sido exitosa');
+      setTimeout(() => {
+        handleSubmit();
+      }, 1000);
+    }
+  }, [vendida]);
 
   return (
     <div className='custom-package-container'>
@@ -105,7 +125,7 @@ function CustomPackage() {
           handleSubmit={false}
         />
         <br />
-        <button onClick={handleApprove}>Aprobar paquete</button>
+        <button onClick={handleApprove}>Aprobar fecha</button>
       </div>
       <div className='package-content'>
         <div className='activities-container'>
@@ -171,8 +191,7 @@ function CustomPackage() {
           }}
           onApprove={(data, actions) => {
             return actions.order.capture().then(function () {
-              handleSubmit();
-              alert('¡Genial! Su transacción ha sido exitosa');
+              setVendida(true);
             });
           }}
           onCancel={(data) => {

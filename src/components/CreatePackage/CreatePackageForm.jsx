@@ -1,12 +1,10 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { validation } from './validation';
 import { useState, useEffect } from 'react';
 import BasicCard from './commons/BasicCard';
@@ -34,8 +32,6 @@ import {
 } from '../../redux/actions/formActions';
 import { inputSet } from '../../redux/actions/formActions';
 registerLocale('es', es);
-
-const theme = createTheme();
 
 const styles = {
   width: '100%',
@@ -416,24 +412,29 @@ export default function CreatePackageForm() {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component='main' maxWidth='xs'>
-        <CssBaseline />
-        <Box
+        <Grid container
           sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            width: '40vw',
+            marginLeft: "5%",
+            width: '70vw',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center"
           }}
         >
-          <Typography component='h1' variant='h3'>
-            Crear paquete
-          </Typography>
-          <Box component='form' onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+          <Grid item>
+            <Typography component='h1' variant='h3'>
+              Crear paquete
+            </Typography>
+          </Grid>
+          <Grid item sx={{ mt: 3 }}>
+            <Grid container spacing={2} sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: "center",
+                width: "60vw"
+              }}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   autoComplete='nombre del paquete'
                   name='name'
@@ -448,7 +449,7 @@ export default function CreatePackageForm() {
                   value={inputs.name}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   required
                   fullWidth
@@ -462,7 +463,7 @@ export default function CreatePackageForm() {
                   value={inputs.location}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   required
                   fullWidth
@@ -477,7 +478,7 @@ export default function CreatePackageForm() {
                   value={inputs.price}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   required
                   fullWidth
@@ -492,7 +493,7 @@ export default function CreatePackageForm() {
                   value={inputs.duration}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   required
                   fullWidth
@@ -506,7 +507,7 @@ export default function CreatePackageForm() {
                   value={inputs.img}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   fullWidth
                   id='img2'
@@ -519,7 +520,7 @@ export default function CreatePackageForm() {
                   value={inputs.img2}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   fullWidth
                   id='img3'
@@ -532,7 +533,7 @@ export default function CreatePackageForm() {
                   value={inputs.img3}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   fullWidth
                   id='img4'
@@ -545,7 +546,7 @@ export default function CreatePackageForm() {
                   value={inputs.img4}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   required
                   fullWidth
@@ -561,7 +562,7 @@ export default function CreatePackageForm() {
                   value={inputs.description}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   required
                   fullWidth
@@ -575,7 +576,7 @@ export default function CreatePackageForm() {
                   value={inputs.quotas}
                 />
               </Grid>
-              <Grid item xs={12} sx={stylesDateInput}>
+              <Grid item xs={12} sx={stylesDateInput} width="50vw">
                 <DatePicker
                   // selected={selectDate}
                   placeholderText='Eligir fecha'
@@ -605,7 +606,7 @@ export default function CreatePackageForm() {
                   })}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} width="50vw">
                 <TextField
                   required
                   fullWidth
@@ -628,8 +629,17 @@ export default function CreatePackageForm() {
                 />
               </Grid>
             </Grid>
-            <br />
-            <Grid item xs={8} sx={styles}>
+          </Grid>
+          <br/>
+          <Grid item>
+            <Grid container sx={{
+                display: "flex", 
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "60vw",
+              }}>
+            <Grid item xs={8} sx={styles} width="50vw">
               <BasicCard
                 header={getHeader(
                   'Crear nueva actividad',
@@ -647,7 +657,7 @@ export default function CreatePackageForm() {
               />
             </Grid>
             <br />
-            <Grid item xs={8} sx={styles}>
+            <Grid item xs={8} sx={styles} width="50vw">
               <BasicCard
                 header={getHeader(
                   'Crear nuevo hotel',
@@ -665,7 +675,7 @@ export default function CreatePackageForm() {
               />
             </Grid>
             <br />
-            <Grid item xs={8} sx={styles}>
+            <Grid item xs={8} sx={styles} width="50vw">
               <BasicCard
                 header={getHeader(
                   'Crear nuevo resto',
@@ -681,16 +691,17 @@ export default function CreatePackageForm() {
                 addNewItem={addNewResto}
                 defaultValues={defaultValuesResto}
               />
-            </Grid>
             <Button
-              type='submit'
+              onClick={handleSubmit}
               fullWidth
               variant='contained'
               sx={{ mt: 3, mb: 2 }}
             >
               Confirmar
             </Button>
-          </Box>
+            </Grid>
+          </Grid>
+          </Grid>
           <Box>
             <Button
               size='small'
@@ -721,8 +732,6 @@ export default function CreatePackageForm() {
               4
             </Button>
           </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
+        </Grid>
   );
 }

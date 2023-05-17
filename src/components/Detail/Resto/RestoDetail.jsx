@@ -11,6 +11,8 @@ import LoadingComponent from '../../Loading/LoadingComponent';
 import CommentBoard from '../../CommentBoard/CommentBoard';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { addRestoForm } from '../../../redux/actions/formActions';
+import styles from "../Detail.module.css"
+import { Rating } from "@mui/material"
 
 export default function RestoDetail() {
   const navigate = useNavigate();
@@ -23,9 +25,9 @@ export default function RestoDetail() {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    centerMode: false,
-    variableWidth: false,
-    adaptativeHeigth: false,
+    // centerMode: false,
+    // variableWidth: false,
+    // adaptativeHeigth: false,
   };
 
   useEffect(() => {
@@ -53,6 +55,7 @@ export default function RestoDetail() {
     }
   };
 
+
   return (
     <Grid
       sx={{
@@ -63,65 +66,60 @@ export default function RestoDetail() {
         marginTop: '2%',
         marginLeft: '8%',
         marginRight: '8%',
-        border: '1px solid black',
-        backgroundColor: 'beige',
       }}
     >
       {Object.keys(restaurant).length ? (
-        <Grid
-          sx={{
-            maxWidth: '70vw',
-            display: 'flex',
-            flexDirection: 'column',
-            textAlign: 'center',
-            marginTop: '2%',
-            marginLeft: '8%',
-          }}
-        >
+        <Grid>
           <Typography
-            variant='h1'
-            component='subtitle1'
+            variant="h2"
             gutterBottom
-            marginTop='1%'
+            fontWeight="400"
+            className={styles.name}
           >
             {restaurant.name}
           </Typography>
           <Slider {...setings}>
             {restaurant.img
               ? restaurant.img.map((item, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      maxWidth: '70%',
-                    }}
-                  >
-                    <img src={item} alt=''></img>
-                  </Box>
-                ))
-              : 'cargando'}
+
+
+                <Box
+                  key={index}
+                >
+                  <img className={styles.image} src={item} alt=""></img>
+                </Box>
+              ))
+              : "cargando"}
+
+
           </Slider>
-          <Grid marginTop='4%'>
-            <Typography
-              variant='h3'
-              sx={{ fontWeight: '600', whiteSpace: 'pre-line' }}
-              gutterBottom
-            >
-              {' '}
-              Descripcion:
-              <Typography variant='h4' sx={{ display: 'block' }}>
-                {restaurant.description}
-              </Typography>
-            </Typography>
-            <Typography variant='h3' sx={{ fontWeight: '700' }} gutterBottom>
-              {' '}
-              Ubicacion:
-              <Typography variant='h4'>{restaurant.location}</Typography>
-            </Typography>
-            <Typography variant='h3' sx={{ fontWeight: '700' }} gutterBottom>
-              ¿Precio aproximado por plato...?:
+
+          <Box className={styles.containerProp}>
+
+            <Box className={styles.containerRating}>
+              <Typography variant='h5'>Ubicacion:</Typography>
+              <Typography variant='h6' sx={{lineHeight:"1", fontSize:"17px"}}>{restaurant.location}</Typography>
+            </Box>
+
+            <Box className={styles.containerRating}>
+              <Typography variant='h5'>Precio Menú:</Typography>
               <Typography variant='h4'>{restaurant.price} USD</Typography>
-            </Typography>
-          </Grid>
+            </Box>
+
+            <Box className={styles.containerRating}>
+              <Typography variant='h5'>Rating</Typography>
+              {restaurant.rating ?
+                <Rating name="half-rating-read" value={restaurant.rating} precision={0.5} readOnly size="large" className={styles.rating} /> :
+                <Typography variant='h4'>S/Puntaje</Typography>
+              }
+            </Box>
+          </Box>
+
+          <Typography variant='h4' sx={{marginTop:"25px"}}>
+          {restaurant.description}
+          </Typography>
+
+          
           <Box
             sx={{
               display: 'flex',

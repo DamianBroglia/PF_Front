@@ -4,6 +4,10 @@ const initialState = {
   activities: [],
   hotel: '',
   restaurant: '',
+  dates: {
+    init: "",
+    end: ""
+  },
   error: '',
 };
 
@@ -34,6 +38,9 @@ export const carritoSlice = createSlice({
     deleteHotel: (state, action) => {
       state.hotel = '';
     },
+    setDate: (state , action) => {
+      state.dates = action.payload
+    },
     setError: (state, action) => {
       state.error = action.payload;
     },
@@ -49,6 +56,7 @@ export const {
   deleteHotel,
   addActivitie,
   deleteActivitie,
+  setDate
 } = carritoSlice.actions;
 
 export default carritoSlice.reducer;

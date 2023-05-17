@@ -7,6 +7,7 @@ import {
   deleteRestaurant,
   addActivitie,
   deleteActivitie,
+  setDate,
 } from '../reducer/carritoSlice';
 
 export const agregarActivitie = (Actividad) => async (dispatch) => {
@@ -51,3 +52,7 @@ export const agregarRestaurant = (Restaurant) => async (dispatch) => {
 export const borrarRestaurant = () => async (dispatch) => {
   dispatch(deleteRestaurant());
 };
+
+export const dateSet = (date) => (dispatch) => {
+  dispatch(setDate(date));
+}
