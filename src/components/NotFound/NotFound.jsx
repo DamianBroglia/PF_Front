@@ -7,7 +7,7 @@ export default function NotFound() {
         <Box display="flex" flexDirection="column" textAlign="center">
             <Typography variant="h1">404 Not Found</Typography>
             <Link to={"/home"}>
-                <Typography variant="h3">Andate a las casa</Typography>
+                <Typography variant="h3">Volver al inicio</Typography>
             </Link>
         </Box>
     )

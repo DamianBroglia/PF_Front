@@ -15,7 +15,7 @@ import { Rating } from '@mui/material';
 import './Hoteles.css'; // Importar el archivo CSS
 
 export default function Hoteles(props) {
-  const { id, name, location, description, img, stars, priceDay, rating } =
+  const { id, name, description, img, priceDay, rating } =
     props.hotel;
   const user = useSelector((state) => state.users.user);
   const toForm = useSelector((state) => state.form.toForm);

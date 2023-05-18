@@ -1,7 +1,6 @@
 import {
     Box,
     Button,
-    ButtonGroup,
     Card,
     CardActions,
     CardContent,
@@ -131,7 +130,6 @@ export default function CommentBoard(prop) {
                                                 justifyContent: 'space-between',
                                                 // margin: '1.5% 1% 0% 1%',
                                                 backgroundColor: "green",
-                                                backgroundColor: "rgb(4 15 57)",
                                                 color: "white",
                                                 alignItems: "center",
                                                 height: "66px",
@@ -193,7 +191,7 @@ export default function CommentBoard(prop) {
                                     <Button size="medium" variant="contained" onClick={() => setCommentValue("")}>Cancelar</Button>
                                 </CardActions>
                             </Card>:
-                             <Typography sx={{fontSize:"25px"}}> Logueate para dejar tu comentario!</Typography>
+                            <Typography sx={{fontSize:"25px"}}> Logueate para dejar tu comentario!</Typography>
             }
 
 

@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { createTheme } from '@mui/material/styles';
 import { validation } from './validation';
 import { useState, useEffect } from 'react';
 import BasicCard from './commons/BasicCard';
@@ -402,7 +401,7 @@ export default function CreatePackageForm() {
 
   useEffect(() => {
     setErrors(validation(inputs, activities));
-  }, [inputs]);
+  }, [inputs, activities]);
 
   useEffect(() => {
     setInputs(state.inputs);

@@ -2,7 +2,7 @@ import React from 'react';
 import BasicModal from './BasicModal';
 import { useState, useEffect } from 'react';
 import { validateHotel } from './validateHotel';
-import { Box, Grid, TextField } from '@mui/material';
+import { Box, TextField } from '@mui/material';
 
 export default function HotelModal({
   open,

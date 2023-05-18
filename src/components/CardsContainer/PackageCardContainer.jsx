@@ -5,10 +5,8 @@ import LoadingComponent from '../Loading/LoadingComponent';
 import { useDispatch, useSelector } from 'react-redux';
 import Paquete from '../Cards/Paquetes';
 import {
-  Box,
   Card,
   CardContent,
-  CardHeader,
   Grid,
   IconButton,
   Tooltip,
@@ -18,7 +16,6 @@ import { Button } from '@mui/material';
 import {
   getAllPacks,
   orderPackages,
-  setFilterPacksByStars,
 } from '../../redux/actions/packageActions';
 //icons
 import AvTimerIcon from '@mui/icons-material/AvTimer';
@@ -28,13 +25,6 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import RemoveIcon from '@mui/icons-material/Remove';
 //imports para los selects ⬇️⬇️⬇️⬇️⬇️
-import { connect } from 'react-redux';
-
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
 import FilterPackage from '../Filter/FilterPackage';
 import { getFilterPacks } from '../../redux/actions/packageActions';
 
