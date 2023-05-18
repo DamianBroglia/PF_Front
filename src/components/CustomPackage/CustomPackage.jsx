@@ -10,12 +10,11 @@ import {
 } from '../../redux/actions/carritoActions';
 import { setButtonToCart } from '../../redux/actions/formActions';
 import './CustomPackage.css';
-import { addReserva } from '../../redux/actions/reservaActions';
 import Calendar from '../Calendar/Calendar';
 import BasicModal from '../CreatePackage/Modals/BasicModal';
 import axios from "axios";
 import { withAuthenticationRequired } from '@auth0/auth0-react';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 function CustomPackage() {
   const navigate = useNavigate();
@@ -107,7 +106,7 @@ function CustomPackage() {
         dateInit: dateInit.toLocaleString(),
         price: calcularValue(activities, hotel)
       }
-      const mail = await axios.post("/mails/confirmation", body);
+      await axios.post("/mails/confirmation", body);
     }
     setVendida(false);
     dispatch(estadoInicialCarrito());

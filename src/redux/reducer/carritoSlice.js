@@ -23,19 +23,19 @@ export const carritoSlice = createSlice({
         (activity) => activity.name !== action.payload,
       );
     },
-    estadoInicial: (state, action) => {
+    estadoInicial: (state) => {
       state.activities = [];
     },
     addRestaurant: (state, action) => {
       state.restaurant = action.payload;
     },
-    deleteRestaurant: (state, action) => {
+    deleteRestaurant: (state) => {
       state.restaurant = '';
     },
     addHotel: (state, action) => {
       state.hotel = action.payload;
     },
-    deleteHotel: (state, action) => {
+    deleteHotel: (state) => {
       state.hotel = '';
     },
     setDate: (state , action) => {

@@ -59,8 +59,7 @@ export default function CreationButtons() {
   const handleSubmitActi = async (data) => {
     try {
       const response = await axios.post('/activity', data);
-      console.log(response.data);
-      alert('actividad creada con exito');
+      if (response.status === 200) alert('actividad creada con exito');
       setOpenActi(false);
     } catch (error) {
       alert(error.response.data.error || error.message);
@@ -70,7 +69,7 @@ export default function CreationButtons() {
   const handleSubmitHotel = async (data) => {
     try {
       const response = await axios.post('/hotel', data);
-      alert('hotel creado con exito');
+      if (response.status === 200) alert('hotel creado con exito');
       setOpenHotel(false);
     } catch (error) {
       alert(error.response.data.error || error.message);
@@ -80,7 +79,7 @@ export default function CreationButtons() {
   const handleSubmitResto = async (data) => {
     try {
       const response = await axios.post('/restaurant', data);
-      alert('restaurant creado con exito');
+      if (response.status === 200) alert('restaurant creado con exito');
       setOpenResto(false);
     } catch (error) {
       alert(error.response.data.error || error.message);

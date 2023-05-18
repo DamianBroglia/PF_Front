@@ -39,12 +39,9 @@ export default function Paquete(props) {
   const {
     id,
     name,
-    location,
     price,
-    duration,
     img,
     description,
-    quotas,
     dateInit,
     dateEnd,
     restaurants,

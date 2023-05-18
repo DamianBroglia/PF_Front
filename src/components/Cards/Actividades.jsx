@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import './Actividades.css'; // Importar el archivo CSS
 
 export default function Actividades(props) {
-  const { id, name, duration, img, description, typeAct, price, rating } = props.actividad;
+  const { id, name, img, description, price, rating } = props.actividad;
   const dispatch = useDispatch();
   const toForm = useSelector((state) => state.form.toForm);
   const user = useSelector((state) => state.users.user);

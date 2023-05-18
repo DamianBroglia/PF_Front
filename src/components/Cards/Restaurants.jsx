@@ -4,7 +4,6 @@ import { CardActionArea } from '@mui/material';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +12,7 @@ import { Link } from 'react-router-dom';
 import { Rating } from '@mui/material';
 
 export default function Restaurants(props) {
-  const { id, name, location, img, price, description, comments, rating } = props.restaurants;
+  const { id, name, img, price, description, rating } = props.restaurants;
   const toForm = useSelector((state) => state.form.toForm);
   const dispatch = useDispatch();
 

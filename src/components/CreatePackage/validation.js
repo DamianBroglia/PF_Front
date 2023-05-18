@@ -1,22 +1,6 @@
-const regexAllLetter = /^[A-Za-z]+$/;
 const regexImage = /(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/i;
 const regexAnyLetter = /[a-z]/i;
 const regexAllNumbers = /^[0-9]+$/;
-
-function fechaValida(fecha) {
-  let falsedad = false;
-  const arreglo = fecha.split('/');
-  if (arreglo.length < 3) return true;
-  const mes = Number(arreglo[0]);
-  const dia = Number(arreglo[1]);
-  const año = Number(arreglo[2]);
-  if (!dia || !mes || !año) falsedad = true;
-  if (dia < 0 || dia > 31) falsedad = true;
-  if (mes > 12 || mes < 1) falsedad = true;
-  if (año < 23 || año > 30) falsedad = true;
-
-  return falsedad;
-}
 
 export function validation(inputs, activities) {
   let errors = {};
@@ -31,8 +15,6 @@ export function validation(inputs, activities) {
     img4,
     description,
     quotas,
-    dateInit,
-    dateEnd,
   } = inputs;
   const calculoDias = Math.floor(activities.length / 2);
 
@@ -51,8 +33,6 @@ export function validation(inputs, activities) {
     errors.description = 'descripcion vacia o no contiene letras';
   if (!quotas || quotas < 20 || !regexAllNumbers.test(quotas))
     errors.quotas = 'no se puede menos de 20 cupos / solo  ingresar numeros';
-  // if (!dateInit || dateInit === dateEnd) errors.dateInit = "fecha invalida";
-  // if (!dateEnd || dateInit === dateEnd) errors.dateEnd = "fecha invalida";
 
   return errors;
 }

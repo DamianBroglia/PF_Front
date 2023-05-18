@@ -95,7 +95,7 @@ export default function PackageDetail() {
         dateInit: transformDate(pack.dateInit),
         price: pack.price
       }
-      const mail = await axios.post("/mails/confirmation", body);
+      await axios.post("/mails/confirmation", body);
     }
     setValid(false);
   }
@@ -103,7 +103,7 @@ export default function PackageDetail() {
   useEffect(() => {
     const getDetail = async () => {
       try {
-        await dispatch(getPackageDetailById(id));
+        dispatch(getPackageDetailById(id));
       } catch (error) {
         console.log(
           'Ocurrió un error al obtener el detalle del paquete:',
