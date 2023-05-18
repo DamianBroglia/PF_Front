@@ -78,7 +78,7 @@ function CustomPackage() {
     const dateInit = new Date(dates.init);
     const dateEnd = new Date(dates.end);
     const pack = {
-      name: "custom package",
+      name: "Paquete Propio",
       location: "custom",
       price: calcularValue(activities, hotel),
       duration: duracion,
