@@ -7,15 +7,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getActivityDetailById } from '../../../redux/actions/ActivitiesActions';
+import { getActivityDetailById, getAllActivity } from '../../../redux/actions/ActivitiesActions';
 import LoadingComponent from '../../Loading/LoadingComponent';
 import CommentBoard from '../../CommentBoard/CommentBoard';
-
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { addActiForm } from '../../../redux/actions/formActions';
 import { agregarActivitie } from '../../../redux/actions/carritoActions';
 import { Rating } from "@mui/material"
 import styles from "../Detail.module.css"
+import axios from 'axios';
 
 export default function ActivityDetail() {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function ActivityDetail() {
   const toForm = useSelector((state) => state.form.toForm);
   const { id } = useParams();
   const user =  useSelector((state) => state.users.user);
-  // const [comment, setComment] = useState(activity.comments)
+  const admin = process.env.REACT_APP_ADMIN_USERS;
 
   useEffect(() => {
     const getDetail = async () => {
@@ -55,7 +55,14 @@ export default function ActivityDetail() {
     }
   };
 
-
+  const handleDelete = async () => {
+    const response = await axios.put("/activity/delete", {id: activity.id});
+    if (response.status === 200) {
+      alert("borrada con exito");
+      dispatch(getAllActivity());
+      navigate(-1);
+    }
+  }
 
   const setings = {
     dots: true,
@@ -159,6 +166,16 @@ export default function ActivityDetail() {
             >
               volver
             </Button>
+            {admin.slice(",").includes(user.email)?
+            (<Button
+              variant='contained'
+              sx={{ fontSize: '1.4rem', marginLeft: "0.5%" }}
+              onClick={handleDelete}
+            >
+              borrar X
+            </Button>)
+            : ("")  
+          }
           </Box>
 
         </Grid>
