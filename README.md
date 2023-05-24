@@ -71,6 +71,16 @@ Administrador:
 
 ---
 
+
+## **App deploy**
+
+- https://patagoniahorizons.netlify.app/home
+
+<br />
+
+---
+
+
 ## **PARA COMENZAR...**
 
    ```bash
