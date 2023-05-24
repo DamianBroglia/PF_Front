@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+<img src="src/assets/Horizons2.png" alt="" width="1000px" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **Henry** | Proyecto Final
 
-## Available Scripts
+## **Descripción**
 
-In the project directory, you can run:
+App desarrollada como proyecto final del curso Full Stack developer de Henry junto a 5 compañeros.
+La app está pensada para hacer mas facil y dinamica la organizacion de vacaciones en la Patagonia.
+Los usuarios pueden elegir y reservar paquetes de turismo pre armados, con distintas actividades para realizar,
+restautantes donde comer y el hotel donde se hospedarán.
+Tambien pueden armar su carrito con las actividades y el hotel que elijan.
 
-### `npm start`
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Funcionalidades**
 
-### `npm test`
+En la app se puede:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Usuario:
+- Ver los distintos paquetes 
+- Comprar un paquete
+- Armar un carrito personalizado
+- Pagar con PayPal o tarjeta
+- Ingresar con una cuenta de la app o con tu cuenta de Google
+- Ver hoteles, restaurantes y actividades
+- Dejar comentarios y puntuaciones a paquetes, hoteles, restaurantes y actividades
+- Filtrar y ordenar paquetes, hoteles, restaurantes y actividades por precio, estrellas, duracion, tipo y rating de los comentarios
+- Buscar paquetes, hoteles, restaurantes y actividades por nombre
+- Ver tus reservas y cancelarlas
 
-### `npm run build`
+Administrador:
+- Crear paquetes, hoteles, restaurantes y actividades
+- Ver las reservas 
+- Mandar spam a los usuarios que asi lo requieran
+- mandar avisos sobre las reservas que estan a una semana de la fecha de inicio
+- Borrar paquetes, hoteles, restaurantes y actividades
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## **Colaboradores**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Lucas Guerendiain
+- Elias Yanzon
+- Marcos Adrian Muga
+- Omar Gomez
+- Agustín Ovalle
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br />
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## **Tecnologias usadas**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- Redux Toolkit
+- Material UI
+- Express
+- Sequalize
+- PostgreSQL
+- Auth0
+- PayPal
 
-### Code Splitting
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## **PARA COMENZAR...**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm install
+   npm start
+   ```
 
-### Making a Progressive Web App
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## **Capturas de la app**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="src/assets/ImagenPatagoniaPag.png" alt="" width="1000px" />
+<img src="src/assets/ImagenPatagoniaPag02.png" alt="" width="1000px" />
+<img src="src/assets/ImagenPatagoniaPag03.png" alt="" width="1000px" />
